@@ -6,6 +6,7 @@
     <ItemGroup>
         <Compile Include="E:\prog\API keys\Google Maps\fableelmishgooglemaps.fs" />
         <Compile Include="Navbar.fs" />
+        <Compile Include="Fable.Helpers.ReactGoogleMaps.fs" />
         <Compile Include="Client.fs" />
     </ItemGroup>
     <Import Project="..\..\.paket\Paket.Restore.targets" />

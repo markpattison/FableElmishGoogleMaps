@@ -9,6 +9,8 @@ group Client
     nuget Fable.Elmish.React ~> 2
     nuget Fable.Elmish.HMR ~> 2
     nuget Fable.FontAwesome.Free
+    nuget Fable.Import.Browser
+    nuget Fable.Import.GoogleMaps 
     nuget Fable.React ~> 4
     nuget Fable.ReactGoogleMaps
     nuget Fable.Remoting.Client ~> 4

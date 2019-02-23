@@ -5,7 +5,8 @@ group Client
     Fable.Elmish.React
     Fable.Elmish.HMR
     Fable.FontAwesome.Free
+    Fable.Import.Browser
+    Fable.Import.GoogleMaps 
     Fable.Remoting.Client
     Fable.React
-    Fable.ReactGoogleMaps
     Fulma

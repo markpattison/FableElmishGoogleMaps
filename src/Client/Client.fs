@@ -18,6 +18,18 @@ importAll "./sass/main.sass"
 let defaultCenter:Fable.Import.GoogleMaps.LatLngLiteral = Fable.Helpers.GoogleMaps.Literal.createLatLng 51.818210 -0.359048
 let googleMapsApiKey = FableElmishGoogleMaps.GoogleMapsApiKey
 
+let markers =
+    [| (51.81, -0.36); (51.82, -0.36); (51.815, -0.35) |]
+    |> Array.mapi (fun i (x, y) ->
+        marker [
+            MarkerProperties.Key i
+            MarkerProperties.Position !^ (Fable.Helpers.GoogleMaps.Literal.createLatLng x y)
+            MarkerProperties.Title (sprintf "Point %i" i)
+            MarkerProperties.Label (sprintf "Point %i" i) ] [])
+
+
+
+
 type View = Page1 | Page2
 
 type Model = { View: View }
@@ -59,7 +71,8 @@ let map =
      MapProperties.MapContainer "mapcontainer"
      MapProperties.DefaultZoom 9
      MapProperties.DefaultCenter !^ defaultCenter
-     MapProperties.Center !^ defaultCenter ]
+     MapProperties.Center !^ defaultCenter
+     MapProperties.Markers markers ]
 
 let view (model : Model) (dispatch : Msg -> unit) =
   
