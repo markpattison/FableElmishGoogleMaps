@@ -24,7 +24,8 @@ var babelOptions = {
         }]
     ],
     // A plugin that enables the re-use of Babel's injected helper code to save on codesize.
-    plugins: ["@babel/plugin-transform-runtime"]
+    plugins: ["@babel/plugin-transform-runtime",
+              "@babel/plugin-proposal-class-properties"]
 };
 
 module.exports = {

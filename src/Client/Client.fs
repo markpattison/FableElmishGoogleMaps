@@ -6,7 +6,8 @@ open Elmish.React
 open Fable.Core.JsInterop
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
-open Fable.PowerPack.Fetch
+open Fable.Helpers.ReactGoogleMaps
+open Fable.Helpers.ReactGoogleMaps.Props
 module P = Fable.Helpers.React.Props
 
 open Fulma
@@ -14,13 +15,14 @@ open Fable.Core
 
 importAll "./sass/main.sass"
 
+let defaultCenter:Fable.Import.GoogleMaps.LatLngLiteral = Fable.Helpers.GoogleMaps.Literal.createLatLng 40.6892494 -74.0445004
+let googleMapsApiKey = FableElmishGoogleMaps.GoogleMapsApiKey
+
 type View = Page1 | Page2
 
 type Model = { View: View }
 
 type Msg = | ShowPage of View
-
-
 
 let init () : Model * Cmd<Msg> =
     { View = Page1 }, []
@@ -48,9 +50,16 @@ let navBar =
       [ Navbar.navbar [ Navbar.Color IsPrimary ]
           [ Navbar.Brand.div []
               [ Navbar.Item.div []
-                  [ Heading.h4 [] [ str "FableElmishRecharts" ] ] ] ] ]
+                  [ Heading.h4 [] [ str "FableElmishGoogleMaps" ] ] ] ] ]
 
-
+let map =
+  googleMap
+   [ MapProperties.ApiKey googleMapsApiKey
+     MapProperties.MapLoadingContainer "maploadercontainer"
+     MapProperties.MapContainer "mapcontainer"
+     MapProperties.DefaultZoom 9
+     MapProperties.DefaultCenter !^ defaultCenter
+     MapProperties.Center !^ defaultCenter ]
 
 let view (model : Model) (dispatch : Msg -> unit) =
   
@@ -59,7 +68,7 @@ let view (model : Model) (dispatch : Msg -> unit) =
         | Page1 ->
             div []
               [ div [] [ Heading.h4 [] [ str "Page 1" ] ]
-                 ]
+                map ]
         | Page2 ->
             div []
               [ div [] [ Heading.h4 [] [ str "Page 2" ] ]

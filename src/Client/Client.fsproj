@@ -4,6 +4,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="E:\prog\API keys\Google Maps\fableelmishgooglemaps.fs" />
         <Compile Include="Navbar.fs" />
         <Compile Include="Client.fs" />
     </ItemGroup>
