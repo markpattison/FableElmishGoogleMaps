@@ -15,7 +15,7 @@ open Fable.Core
 
 importAll "./sass/main.sass"
 
-let defaultCenter:Fable.Import.GoogleMaps.LatLngLiteral = Fable.Helpers.GoogleMaps.Literal.createLatLng 40.6892494 -74.0445004
+let defaultCenter:Fable.Import.GoogleMaps.LatLngLiteral = Fable.Helpers.GoogleMaps.Literal.createLatLng 51.818210 -0.359048
 let googleMapsApiKey = FableElmishGoogleMaps.GoogleMapsApiKey
 
 type View = Page1 | Page2
