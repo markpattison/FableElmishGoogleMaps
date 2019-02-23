@@ -19,12 +19,12 @@ let navButtons =
     [ Field.div
         [ Field.IsGrouped ]
         [ navButton "twitter" "https://twitter.com/mark_pattison" Fa.Brand.Twitter "Twitter"
-          navButton "github" "https://github.com/markpattison/FableElmishRecharts" Fa.Brand.Github "GitHub" ] ]
+          navButton "github" "https://github.com/markpattison/FableElmishGoogleMaps" Fa.Brand.Github "GitHub" ] ]
 
 let root =
   Navbar.navbar [ Navbar.Color IsPrimary ]
     [ Navbar.Brand.div []
         [ Navbar.Item.div []
-            [ Heading.h4 [] [ str "FableElmishRecharts" ] ] ]
+            [ Heading.h4 [] [ str "FableElmishGoogleMaps" ] ] ]
       Navbar.End.div []
         [ navButtons ] ]

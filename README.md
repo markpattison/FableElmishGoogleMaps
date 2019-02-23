@@ -1,3 +1,3 @@
-# FableElmishRecharts
+# FableElmishGoogleMaps
 
-A sample using Fable.Recharts.
+A sample using Fable.ReactGoogleMaps.
