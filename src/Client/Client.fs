@@ -12,6 +12,7 @@ module P = Fable.Helpers.React.Props
 
 open Fulma
 open Fable.Core
+open Fable.Import.GoogleMaps
 
 importAll "./sass/main.sass"
 
@@ -24,8 +25,10 @@ let markers =
         marker [
             MarkerProperties.Key i
             MarkerProperties.Position !^ (Fable.Helpers.GoogleMaps.Literal.createLatLng x y)
+            MarkerProperties.Icon "http://www.google-analytics.com/__utm.gif"
             MarkerProperties.Title (sprintf "Point %i" i)
-            MarkerProperties.Label (sprintf "Point %i" i) ] [])
+            MarkerProperties.Label 
+              (markerLabel [ MarkerLabelProperties.Text "Hello" ] []) ] [])
 
 
 

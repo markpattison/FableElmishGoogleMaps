@@ -54,6 +54,18 @@ module Props =
     | OnPlacesChanged of (unit -> unit)
         interface ISearchBoxProperties
 
+    type IMarkerLabelProperties =
+        interface end
+
+    [<RequireQualifiedAccess>]
+    type MarkerLabelProperties =
+    | Color of string
+    | FontFamily of string
+    | FontSize of string
+    | FontWeight of string
+    | Text of string
+        interface IMarkerLabelProperties
+    
     type IMarkerProperties =
         interface end
 
@@ -62,7 +74,7 @@ module Props =
     | Key of obj
     | Title of string
     | Icon of string
-    | Label of obj
+    | Label of React.ReactElement
     | OnClick of (unit -> unit)
     | Position of U2<LatLng, LatLngLiteral>
         interface IMarkerProperties
@@ -103,6 +115,7 @@ module Props =
     | MapContainer of string
     | Options of obj
         interface IMapProperties
+
 let InfoWindow: RCom = import "InfoWindow" "react-google-maps"
 
 /// A wrapper around google.maps.InfoWindow
@@ -128,8 +141,13 @@ let MarkerClusterer: RCom = import "MarkerClusterer" "react-google-maps/lib/comp
 let markerClusterer (props:Props.IMarkerClustererProperties list) (markers:React.ReactElement list) : React.ReactElement =
     R.from MarkerClusterer (keyValueList CaseRules.LowerFirst props) markers
 
-let GoogleMapComponent: RCom = import "GoogleMapComponent" "./mapComponent.js"
+let MarkerLabel: RCom = import "MarkerLabel" "react-google-maps"
 
+/// A wrapper around google.maps.MarkerLabel
+let markerLabel (props:Props.IMarkerLabelProperties list) children : React.ReactElement =
+    R.from MarkerLabel (keyValueList CaseRules.LowerFirst props) children
+
+let GoogleMapComponent: RCom = import "GoogleMapComponent" "./mapComponent.js"
 
 /// A wrapper around google.maps.Map
 let googleMap (props:Props.IMapProperties list) : React.ReactElement =
